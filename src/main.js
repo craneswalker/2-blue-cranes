@@ -3,11 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import VueMq from 'vue-mq'
 import AOS from 'aos'
 import'aos/dist/aos.css'
 
 Vue.config.productionTip = false
+
+Vue.use(VueMq, {
+  breakpoints: {
+    mobile: 700,
+    tablet: 1000,
+    desktop: Infinity,
+  }
+})
 
 new Vue({
   created(){
@@ -15,6 +23,7 @@ new Vue({
   },
   el: '#app',
   router,
+  VueMq,
   components: { App },
   template: '<App/>'
 })

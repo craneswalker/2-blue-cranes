@@ -1,16 +1,22 @@
 <template>
   <div id="App">
     <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css"> 
-    <div v-if="scrolled == false">
-      <LargeNav class="visible"/>
-      <SmallNav class="hidden"/>
-    </div>
-    <div v-else>
-      <LargeNav class="hidden"/>
-      <SmallNav class="visible sticky"/>
-    </div>
-        <TopBanner data-aos="zoom-in" class="visible"/>
-    <router-view/>
+    <mq-layout mq="tablet+">
+      <div v-if="scrolled == false">
+        <LargeNav class="visible"/>
+        <SmallNav class="hidden"/>
+      </div>
+      <div v-else>
+        <LargeNav class="hidden"/>
+        <SmallNav class="visible sticky"/>
+      </div>
+      <TopBanner data-aos="zoom-in" class="visible"/>
+      <router-view/>
+    </mq-layout> 
+    <mq-layout mq="mobile">
+      <MobileNav class="sticky"/>
+      <router-view id="mobile-adjust"/>
+    </mq-layout> 
   </div>
 </template>
 
@@ -18,6 +24,7 @@
 import TopBanner from '@/components/TopBanner'
 import LargeNav from '@/components/LargeNav'
 import SmallNav from '@/components/SmallNav'
+import MobileNav from '@/components/MobileNav'
 import Content from '@/components/Content'
 import Products from '@/components/Products'
 
@@ -27,6 +34,7 @@ export default {
     TopBanner,
     LargeNav,
     SmallNav,
+    MobileNav,
     Content,
     Products
   },
@@ -54,9 +62,12 @@ destroyed () {
   height: 100%;
   width: 100vw;
 }
+#mobile-adjust {
+  margin-top: 100px;
+}
 .hidden {
   width: 100%;
-  visibility:hidden;
+  visibility: hidden;
   position: absolute;
   opacity: 0;
 }
