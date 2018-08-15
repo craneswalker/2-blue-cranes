@@ -12,8 +12,13 @@
     </nav>
     </div>
     <section :class='{hidden : navToggle}'>
-      <router-link class="nav-link dropdown-button" to="/">About Our CBD</router-link>    
-      <router-link class="nav-link dropdown-button" to="/products">Products</router-link>
+      <a href="tel:+17202702525">
+        <button type="button" class="btn btn-blue btn-md">Call Now</button>
+      </a>
+      <div class="dropdown-links">
+        <router-link class="nav-link dropdown-button" to="/">About Our CBD</router-link>    
+        <router-link class="nav-link dropdown-button" to="/products">Products</router-link>
+      </div>    
     </section>
 
   </div>
@@ -102,9 +107,16 @@ export default {
     max-width: 50px;
     max-height: 50px;
   }
+  .btn-blue {
+    background: rgb(0,122,181);
+    border: 1px solid white;
+    color: white;
+    margin: 25px;
+  }
   section {
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-end;
     z-index: 10000;
   }

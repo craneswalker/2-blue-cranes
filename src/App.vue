@@ -17,6 +17,7 @@
       <MobileNav class="sticky"/>
       <router-view id="mobile-adjust"/>
     </mq-layout> 
+    <TheFooter/>
   </div>
 </template>
 
@@ -27,6 +28,7 @@ import SmallNav from '@/components/SmallNav'
 import MobileNav from '@/components/MobileNav'
 import Content from '@/components/Content'
 import Products from '@/components/Products'
+import TheFooter from '@/components/TheFooter'
 
 export default {
   name: 'App',
@@ -36,7 +38,8 @@ export default {
     SmallNav,
     MobileNav,
     Content,
-    Products
+    Products,
+    TheFooter
   },
 data () {
   return {
